@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Muhammad Hanifan Suhardi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Portofolio</a>
+            <div class="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#about">Tentang</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Proyek</a>
+                <a href="#contact">Kontak</a>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Haloo, Saya <span class="highlight">Muhammad Hanifan Suhardi</span></h1>
+                <h2 class="hero-subtitle">Frontend Developer</h2>
+                <p class="hero-description">Saya membuat solusi digital yang indah dan fungsional dengan passion dan kreativitas.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">Lihat Proyek</a>
+                    <a href="#contact" class="btn-secondary">Hubungi Saya</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/hanifan1470-cell"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/muhammad_hanifan_s?igsh=dHZpZXo5a3F6bGZh"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="images/profile.jpg" alt="Foto Profil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah seorang Frontend Developer dengan pengalaman lebih dari 3 tahun dalam membangun aplikasi web yang responsif dan user-friendly. Saya memiliki keahlian dalam HTML, CSS, JavaScript, serta framework populer seperti Laravel dan Next.js. Saya selalu bersemangat untuk belajar teknologi baru dan menerapkannya dalam proyek-proyek saya.</p>
+                    <a href="assets/resume.pdf" download class="btn-primary">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>6</h3>
+                        <p>Proyek Selesai</p>
+                    </div>
+                    <div class="stat">
+                        <h3>0</h3>
+                        <p>Klien Puas</p>
+                    </div>
+                    <div class="stat">
+                        <h3>1</h3>
+                        <p>Tahun Pengalaman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Keterampilan</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, Laravel, Next.js</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Figma</p>
+                </div>
+                <!-- <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <!-- <h3>Mobile Development</h3>
+                    <p>React Native, Flutter, iOS & Android</p> -->
+                </div> 
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database</h3>
+                    <p>MySQL, PostgreSQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyek Terbaru</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <!-- <div class="project-image">
+                        <img src="assets/images/projects/project1.jpg" alt="Proyek 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Website E-commerce</h3>
+                        <p>Platform belanja online dengan fitur lengkap dan responsif.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">Lihat Detail →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/project2.jpg" alt="Proyek 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Aplikasi Mobile</h3>
+                        <p>Aplikasi produktivitas dengan UI/UX yang menarik.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="#" class="project-link">Lihat Detail →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/project3.jpg" alt="Proyek 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Dashboard untuk visualisasi data real-time.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Python</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <a href="#" class="project-link">Lihat Detail →</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hanifan1470@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telepon</h3>
+                            <p>+62 821 2729 4292</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Lokasi</h3>
+                            <p>Bandung, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Muhammad Hanifan Suhardi. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
