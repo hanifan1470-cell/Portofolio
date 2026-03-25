@@ -3,44 +3,66 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===== THEME TOGGLE =====
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
     
     function initTheme() {
         const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
         document.documentElement.setAttribute('data-theme', savedTheme);
         updateThemeToggle(savedTheme);
     }
     
     function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
+        console.log('Toggling theme from', currentTheme, 'to', newTheme);
+        document.documentElement.setAttribute('data-bs-theme', newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('portfolio-theme', newTheme);
         updateThemeToggle(newTheme);
-        
-        // Add transition effect
-        document.documentElement.style.transition = 'all 0.3s ease';
-        setTimeout(() => {
-            document.documentElement.style.transition = '';
-        }, 300);
     }
     
     function updateThemeToggle(theme) {
-        const toggleCircle = document.querySelector('.toggle-circle');
-        if (toggleCircle) {
-            if (theme === 'dark') {
-                toggleCircle.style.left = '28px';
-            } else {
-                toggleCircle.style.left = '2px';
+        if (!themeToggleBtn) return;
+        
+        // Handle both Bootstrap Icons and Font Awesome icons
+        const icons = themeToggleBtn.querySelectorAll('i');
+        icons.forEach(icon => {
+            // For Font Awesome icons
+            if (icon.classList.contains('fas')) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
             }
-        }
+            // For Bootstrap Icons
+            else if (icon.classList.contains('bi')) {
+                if (theme === 'dark') {
+                    icon.classList.remove('bi-moon');
+                    icon.classList.add('bi-sun');
+                } else {
+                    icon.classList.remove('bi-sun');
+                    icon.classList.add('bi-moon');
+                }
+            }
+        });
     }
     
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
+    // Initialize theme on page load
     initTheme();
+    
+    // Add click listener to theme toggle button
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleTheme();
+        });
+    }
     
     // ===== NAVIGATION =====
     const navbar = document.querySelector('.navbar');

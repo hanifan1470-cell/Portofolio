@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- html2pdf Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -63,9 +65,9 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Saya adalah seorang Frontend Developer dengan pengalaman 1 tahun dalam membangun aplikasi web yang responsif dan user-friendly. Saya memiliki keahlian dalam HTML, CSS, JavaScript, serta framework populer seperti Laravel dan Next.js. Saya selalu bersemangat untuk belajar teknologi baru dan menerapkannya dalam proyek-proyek saya.</p>
-                    <a href="" download class="btn-primary">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
+                    <button onclick="downloadPortfolioPDF()" class="btn-primary" id="downloadPdfBtn">
+                        <i class="fas fa-download"></i> Download Portofolio
+                    </button>
                 </div>
                 <div class="about-stats">
                     <div class="stat">
@@ -204,11 +206,12 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Nama Anda" required>
-                    <input type="email" placeholder="Email Anda" required>
-                    <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" id="user_name" placeholder="Nama Anda" required>
+                    <input type="email" id="user_email" placeholder="Email Anda" required>
+                    <textarea id="message" placeholder="Pesan Anda" rows="5" required></textarea>
                     <button type="submit" class="btn-primary">Kirim Pesan</button>
+                    <div id="formMessage" style="margin-top: 10px; display: none;"></div>
                 </form>
             </div>
         </div>
@@ -230,6 +233,50 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
     <script src="script.js"></script>
+    
+    <!-- PDF Download Script -->
+    <script>
+        function downloadPortfolioPDF() {
+            const element = document.documentElement;
+            const opt = {
+                margin: 10,
+                filename: 'Portofolio_Muhammad_Hanifan_Suhardi.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, allowTaint: true },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            // Show loading message
+            const btn = document.getElementById('downloadPdfBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Membuat PDF...';
+            btn.disabled = true;
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }).catch(err => {
+                console.error('PDF download error:', err);
+                btn.textContent = originalText;
+                btn.disabled = false;
+                alert('Gagal membuat PDF. Silakan coba lagi.');
+            });
+        }
+        
+        // Add click listener when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+            if (downloadPdfBtn) {
+                downloadPdfBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    downloadPortfolioPDF();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
