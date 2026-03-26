@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Theme toggle doesn't close menu on mobile
+    themeToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
     // Form Submission (Prevent default & show message)
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
